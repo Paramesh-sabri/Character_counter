@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHAR-COUNTER</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: #f4f4f9;
+            font-family: 'Arial', sans-serif;
+        }
+        .container {
+            font-size: 18px;
+            text-align: center;
+            border: 1px solid #dcdcdc;
+            padding: 20px;
+            padding-right: 20px;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            max-width: 90%;
+        }
+        #textarea {
+            width: 92%;
+            height: 60px;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            border: 1px solid #b0b0b0;
+            background-color: #fafafa;
+            border-radius: 5px;
+            color: #333;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        .count {
+            display: flex;
+            justify-content: space-between;
+            font-size: 16px;
+        }
+        .counter, .rem {
+            padding: 10px;
+        }
+        label {
+            font-size: 20px;
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+            font-weight: 600;
+        }
+        .count p {
+            display: inline;
+            font-size: 20px;
+            font-weight: 700;
+        }
+        h1 {
+            font-size: 22px;
+            color: #333;
+            margin: 0;
+            padding-bottom: 15px;
+        }
+        .counter {
+            color: #4caf50;
+        }
+        .rem {
+            color: #f44336;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <label for="text"><h1>Real-Time Character Counter :</h1></label>
+        <input type="text" name="text" id="textarea" maxlength="50">
+        <div class="count">
+            <div class="counter">Total characters typed: <p id="charCount">0</p></div>
+            <div class="rem">Remaining space: <p id="charRem">50</p></div>
+        </div>
+    </div>
+    <script>
+        const textInput = document.getElementById('textarea');
+        const charCount = document.getElementById('charCount');
+        const charRem = document.getElementById('charRem');
+        const maxChars = 50;
+        textInput.addEventListener('input', () => {
+            const currentLength = textInput.value.length;
+            charCount.textContent = currentLength;
+            charRem.textContent = maxChars - currentLength;
+        });
+    </script>
+</body>
+</html>
